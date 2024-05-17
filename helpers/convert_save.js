@@ -1,4 +1,4 @@
-const {Parser} = require("@json2csv/plainjs");
+const { Parser } = require("@json2csv/plainjs");
 const fs = require("fs");
 
 const convertToCSV = (jsonData, filePath) => {

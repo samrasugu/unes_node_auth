@@ -10,18 +10,18 @@ const password = process.env.PASSWORD;
 const filePath = './csvfile.csv';
 
 fetchRouter.get("/fetch_file", async (req, res) => {
-   try {
-    // get json file from endpoint
-     const jsonData = await fetchData(endpoint, username, password);
-    
-    //  convert json file to csv and save it locally
-     convertSaveCSV(jsonData, filePath);
+    try {
+        // get json file from endpoint
+        const jsonData = await fetchData(endpoint, username, password);
 
-     res.send("JSON file converted to csv successfully. File at ./csvfile.csv");
-   } catch (error) {
-    console.log(`Error occurred while converting json file to csv ${error.message}`);
-    res.status(500).send("An error occurred");
-   }
+        //  convert json file to csv and save it locally
+        convertSaveCSV(jsonData, filePath);
+
+        res.send("JSON file converted to csv successfully. File at ./csvfile.csv");
+    } catch (error) {
+        console.log(`Error occurred while converting json file to csv ${error.message}`);
+        res.status(500).send("An error occurred");
+    }
 });
 
 module.exports = fetchRouter;
